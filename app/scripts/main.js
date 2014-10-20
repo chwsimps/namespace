@@ -1,78 +1,61 @@
-// Method 1 - Size ====================
+(function() {
+
+var root = this;
 var chase = {}
 
-var myArray = [1, 2, 3, 4, 5];
+root.chase = chase;
 
-chase.size = function (list) {
-  return(list.length);
+// Method 1 - Size ====================
+chase.size = function (x) {
+  return(x.length);
 };
 
-var c = chase.size(myArray);
-
-console.log(c);
-
 // Method 2. - Object  ===================
-var ironYard = ["Tim","Wendy","Richard", "Chelsea", "Emory", "Victoria", "John", "Joanna","Chase"];
-var age = ["30yrs", "25yrs", "24yrs", "23yrs", "22yrs", "31yrs", "29yrs", "35yrs", "28yrs"];
-var wendy=[];
-
-wendy.object = function( ironYard, age) {
-    if (ironYard == null) return {};
+chase.object = function( x, y) {
+    if (x == null) return {};
     var result = {};
 
-    for (var i = 0, length = ironYard.length; i < length; i++) {
-      if (age) {
+    for (var i = 0, length = x.length; i < length; i++) {
+      if (y) {
 
-        result[ironYard[i]] = age[i];
+        result[x[i]] = y[i];
       }
 
-
       else {
-        result[ironYard[i][0]] = ironYard[i][0]; //Showing first letter of name if age is not defined.
+        result[x[i][0]] = x[i][1];
       }
     }
     return result;
   };
 
-  var w= wendy.object(ironYard,age);
-
-  console.log(w);
-
 // Method 3. - First =============================
-
-var list = [1, 2, 3, 4, 5]
-
 chase.first = function (list) {
   return(list[0]);
 };
 
-var first = chase.first(list);
-
-console.log(first);
 
 // Method 4. Each- ==================================
 
-chase.each = function(list,ears){
-  var top = list.length
-  for(var index = 0;index < top;index = index +1){
-    var item = list[index]
-    ears(item)
-
+chase.each = function( x, y ){
+  var top = x.length;
+  for(var index = 0; index < top; index = index +1){
+    var item = x[index]
+    y(item);
   }
 };
 
-chase.each(['videos','cheese','wine'],function(foo){
-  console.log(foo.length);
-});
+}());
 
+
+// NOTES =====================================================================
 
 // Setup main object
     // var chase = {};
     //
-    // chase.each = function (arr) {
-    //   if (arr == null) return;
-    //   console.log(arr);
+    // chase.each = function (c) {
+    //   if (c == null) return;
     // };
+
 
 // Greeting function
     // chase.greeting = function () {
@@ -87,3 +70,9 @@ chase.each(['videos','cheese','wine'],function(foo){
     //   }
     //   return min + Math.floor(Math.random () * (max - min + 1));
     // };
+
+
+// Function will return a new array
+// Take two parameters
+  // 1. an array
+  // 2. a callback, function
