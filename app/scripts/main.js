@@ -10,6 +10,7 @@ chase.size = function (x) {
   return(x.length);
 };
 
+
 // Method 2. - Object  ===================
 chase.object = function( x, y) {
     if (x == null) return {};
@@ -34,17 +35,20 @@ chase.first = function (list) {
 };
 
 
-// Method 4. Each- ==================================
-
+// Method 4. Each ==================================
 chase.each = function( x, y ){
-  var top = x.length;
-  for(var index = 0; index < top; index = index +1){
-    var item = x[index]
+  var simp = x.length;
+  for(var i = 0; i < simp; i = i + 1){
+    var item = x[i]
     y(item);
   }
 };
 
+// Method 4. Noop ==================================
+chase.noop = function(){};
+
 }());
+
 
 
 // NOTES =====================================================================
